@@ -1,6 +1,6 @@
 # Edge TPU - Tiny YOLO v3
 
-![Demo](blob:https://giphy.com/755055f6-7e72-41e8-9721-c106ee4f5385)
+![Demo](https://media.giphy.com/media/TGWngsazIY4FCEA9sP/giphy.gif)
 
 This repository contains the instructions and scripts to run the Tiny YOLO-v3 on Google's Edge TPU USB Accelerator.
 
