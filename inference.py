@@ -63,7 +63,7 @@ def inference(interpreter, img, anchors, n_classes, threshold):
     interpreter.invoke()
 
     inf_time = time() - start
-    print(f"Inference time: {inf_time*1000} ms.")
+    print(f"Net forward-pass time: {inf_time*1000} ms.")
 
     # Retrieve outputs of the network
     out1 = interpreter.get_tensor(output_details[0]['index'])
@@ -164,7 +164,6 @@ def webcam_inf(interpreter, anchors, classes, threshold=0.25):
 
 def video_inf(interpreter, anchors, classes, path, threshold=0.25):
     cap = cv2.VideoCapture(path)
-    out = cv2.VideoWriter('outpy.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 30, (640,360))
 
     input_details, output_details, input_shape = \
             get_interpreter_details(interpreter)
@@ -175,8 +174,6 @@ def video_inf(interpreter, anchors, classes, path, threshold=0.25):
     while True:
         # Read frame from webcam
         ret, frame = cap.read()
-
-        frame = cv2.resize(frame, None, fx=0.5, fy=0.5)
 
         # Run inference, get boxes
         start = time()
@@ -193,13 +190,11 @@ def video_inf(interpreter, anchors, classes, path, threshold=0.25):
                 0.45, (200, 0, 200), 1, cv2.LINE_AA)
 
         cv2.imshow("Image", frame)
-        out.write(frame)
         k = cv2.waitKey(1) & 0xFF
         if k == ord('q'):
             break
 
     cap.release()
-    out.release()
 
 def image_inf(interpreter, anchors, img_fn, classes, threshold):
     img = cv2.imread(img_fn)
