@@ -42,7 +42,7 @@ To run on Edge TPU, we need to convert the Keras model to TF-Lite and apply post
 
     python keras_to_tflite_quant.py keras-model.h5 output-filename.tflite
     
-**Note**: The quantization of the `RESIZE_NEAREST_NEIGHBOR` op is only supported in Tensorflow nightly packages as of now, so you need use that for this script. 
+**Note**: The quantization of the `RESIZE_NEAREST_NEIGHBOR` op is only supported in Tensorflow 2.0 nightly packages as of now, so you need use that version for thconversion. 
     
     pip install tf-nightly
     
