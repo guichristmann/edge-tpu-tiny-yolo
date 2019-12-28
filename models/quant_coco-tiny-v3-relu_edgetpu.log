@@ -1,0 +1,11 @@
+Edge TPU Compiler version 2.0.267685300
+Input: quant_coco-tiny-v3-relu.tflite
+Output: quant_coco-tiny-v3-relu_edgetpu.tflite
+
+Operator                       Count      Status
+
+RESIZE_NEAREST_NEIGHBOR        1          Mapped to Edge TPU
+MAX_POOL_2D                    6          Mapped to Edge TPU
+CONCATENATION                  1          Mapped to Edge TPU
+QUANTIZE                       4          Mapped to Edge TPU
+CONV_2D                        13         Mapped to Edge TPU
